@@ -1,5 +1,9 @@
 vim.api.nvim_set_keymap('i', 'uu', '<ESC>', { noremap = true }) --inoremap uu <ESC>
 
+-- Remap leader
+vim.api.nvim_set_keymap('n', '.', '<NOP>', { noremap = true, silent = true })
+vim.g.mapleader = '.'
+
 vim.api.nvim_set_keymap('n', '<TAB>', ':bnext<CR>', { noremap = true }) -- TAB in normal mode will move to next buffer
 vim.api.nvim_set_keymap('n', '<S-TAB>', ':bprevious<CR>', { noremap = true }) -- SHIFT-TAB will go back
 
