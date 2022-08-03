@@ -34,6 +34,9 @@ vim.api.nvim_set_keymap('n', '<Space>j', '<C-w>w', { noremap = true }) -- Switch
 -- Lexplore
 vim.api.nvim_set_keymap('n', '<Leader>e', ':Lexplore<CR>', { noremap = true, silent = true })
 
+-- Paste from insert mode
+vim.api.nvim_set_keymap('i', '<Leader>p', '<Esc>pa', { noremap = true })
+
 -- <TAB> Completion
 
 -- The function is called `t` for `termcodes`.
