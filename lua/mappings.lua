@@ -35,7 +35,7 @@ vim.api.nvim_set_keymap('n', '<Space>j', '<C-w>w', { noremap = true }) -- Switch
 vim.api.nvim_set_keymap('n', '<Leader>e', ':Lexplore<CR>', { noremap = true, silent = true })
 
 -- Paste from insert mode
-vim.api.nvim_set_keymap('i', '<Leader>p', '<Esc>pa', { noremap = true })
+vim.api.nvim_set_keymap('i', '<Leader>pp', '<Esc>pa', { noremap = true })
 
 -- <TAB> Completion
 
