@@ -21,6 +21,7 @@ return require('packer').startup(function(use)
 
 	use { 'calviken/vim-gdscript3' } -- Gdscript syntax highlighter
 
+	use { 'evanleck/vim-svelte', branch = 'main' } -- Svelte syntax highlighter
 
 
   -- Automatically set up your configuration after cloning packer.nvim
