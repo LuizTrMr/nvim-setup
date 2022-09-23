@@ -1,8 +1,8 @@
 vim.api.nvim_set_keymap('i', 'uu', '<ESC>', { noremap = true }) --inoremap uu <ESC>
 
 -- Remap leader
-vim.api.nvim_set_keymap('n', '.', '<NOP>', { noremap = true, silent = true })
-vim.g.mapleader = '.'
+vim.api.nvim_set_keymap('n', '\\', '<NOP>', { noremap = true, silent = true })
+vim.g.mapleader = '\\'
 
 vim.api.nvim_set_keymap('n', '<TAB>', ':bnext<CR>', { noremap = true }) -- TAB in normal mode will move to next buffer
 vim.api.nvim_set_keymap('n', '<S-TAB>', ':bprevious<CR>', { noremap = true }) -- SHIFT-TAB will go back
@@ -35,7 +35,7 @@ vim.api.nvim_set_keymap('n', '<Space>j', '<C-w>w', { noremap = true }) -- Switch
 vim.api.nvim_set_keymap('n', '<Leader>e', ':Lexplore<CR>', { noremap = true, silent = true })
 
 -- Paste from insert mode
-vim.api.nvim_set_keymap('i', '<Leader>pp', '<Esc>pa', { noremap = true })
+vim.api.nvim_set_keymap('i', '<Leader>p', '<Esc>pa', { noremap = true })
 
 -- <TAB> Completion
 
