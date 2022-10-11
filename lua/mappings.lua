@@ -7,6 +7,10 @@ vim.g.mapleader = '\\'
 vim.api.nvim_set_keymap('n', '<TAB>', ':bnext<CR>', { noremap = true }) -- TAB in normal mode will move to next buffer
 vim.api.nvim_set_keymap('n', '<S-TAB>', ':bprevious<CR>', { noremap = true }) -- SHIFT-TAB will go back
 
+
+vim.api.nvim_set_keymap('i', '<Leader><TAB>', '<Esc>:bnext<CR>', { noremap = true }) -- TAB in normal mode will move to next buffer
+vim.api.nvim_set_keymap('i', '<Leader><S-TAB>', '<Esc>:bprevious<CR>', { noremap = true }) -- SHIFT-TAB will go back
+
 -- Go to the beginning of line (first non-blank characeter)
 vim.api.nvim_set_keymap('n', 'H', '^', { noremap = true }) --nnoremap H ^
 vim.api.nvim_set_keymap('v', 'H', '^', { noremap = true }) --vnoremap H ^
