@@ -15,6 +15,10 @@ vim.opt.path:append('**') -- Search files into subfolders / tab-completion for f
 vim.opt.wildmenu = true -- Display all matching files when tab-completion
 vim.opt.textwidth = 0 -- Files other than the ones specified in ftplugins should not have wrapping
 
+-- Default identation
+vim.opt.tabstop = 4
+vim.opt.shiftwidth = 4
+
 -- Colorscheme
 vim.cmd('colorscheme nightfox')
 
