@@ -41,6 +41,9 @@ vim.api.nvim_set_keymap('n', '<Leader>e', ':Lexplore<CR>', { noremap = true, sil
 -- Paste from insert mode
 vim.api.nvim_set_keymap('i', '<Leader>p', '<Esc>pa', { noremap = true })
 
+-- Paste in visual mode without losing copied string
+vim.api.nvim_set_keymap('v', '<Leader>p', "\"_dP", { noremap = true })
+
 -- <TAB> Completion
 
 -- The function is called `t` for `termcodes`.
