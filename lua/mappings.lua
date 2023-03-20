@@ -7,7 +7,6 @@ vim.g.mapleader = '\\'
 vim.api.nvim_set_keymap('n', '<TAB>', ':bnext<CR>', { noremap = true }) -- TAB in normal mode will move to next buffer
 vim.api.nvim_set_keymap('n', '<S-TAB>', ':bprevious<CR>', { noremap = true }) -- SHIFT-TAB will go back
 
-
 vim.api.nvim_set_keymap('i', '<Leader><TAB>', '<Esc>:bnext<CR>', { noremap = true }) -- TAB in normal mode will move to next buffer
 vim.api.nvim_set_keymap('i', '<Leader><S-TAB>', '<Esc>:bprevious<CR>', { noremap = true }) -- SHIFT-TAB will go back
 
@@ -46,5 +45,6 @@ vim.api.nvim_set_keymap('v', '<Leader>p', "\"_dP", { noremap = true })
 
 -- <TAB> Completion
 local opts = {silent = true, noremap = true, expr = true, replace_keycodes = false}
-vim.keymap.set("i", "<TAB>", 'coc#pum#visible() ? coc#pum#next(1) : v:lua.check_back_space() ? "<TAB>" : coc#refresh()', opts)
+vim.keymap.set("i", "<TAB>", 'coc#pum#visible() ? coc#pum#next(1) : "<TAB>"', opts)
+vim.keymap.set("i", "<CR>", 'coc#pum#visible() ? coc#pum#confirm() : "<C-g>u<CR><c-r>=coc#on_enter()<CR>"', opts)
 vim.keymap.set("i", "<S-TAB>", [[coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"]], opts)
