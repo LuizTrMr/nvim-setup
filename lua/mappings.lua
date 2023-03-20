@@ -45,14 +45,6 @@ vim.api.nvim_set_keymap('i', '<Leader>p', '<Esc>pa', { noremap = true })
 vim.api.nvim_set_keymap('v', '<Leader>p', "\"_dP", { noremap = true })
 
 -- <TAB> Completion
-
--- The function is called `t` for `termcodes`.
-local function t(str)
-    -- Adjust boolean arguments as needed
-    return vim.api.nvim_replace_termcodes(str, true, true, true)
-end
-
-function _G.smart_tab()
-    return vim.fn.pumvisible() == 1 and t('<C-N>') or t('<Tab>')
-end
-vim.api.nvim_set_keymap('i', '<Tab>', 'v:lua.smart_tab()', {expr = true, noremap = true})
+local opts = {silent = true, noremap = true, expr = true, replace_keycodes = false}
+vim.keymap.set("i", "<TAB>", 'coc#pum#visible() ? coc#pum#next(1) : v:lua.check_back_space() ? "<TAB>" : coc#refresh()', opts)
+vim.keymap.set("i", "<S-TAB>", [[coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"]], opts)

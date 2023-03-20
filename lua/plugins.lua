@@ -7,6 +7,8 @@ end
 return require('packer').startup(function(use)
 	use {'EdenEast/nightfox.nvim'} -- Color Theme
 
+	use {'morhetz/gruvbox'} -- Color Theme
+
 	use {'tmhedberg/SimpylFold'} -- Auto fold for python
 
 	use {'tpope/vim-commentary'} -- Comment multiple lines with gcc in visual mode
@@ -23,6 +25,17 @@ return require('packer').startup(function(use)
 
 	use { 'evanleck/vim-svelte', branch = 'main' } -- Svelte syntax highlighter
 
+	-- use { 'github/copilot.vim' }
+
+	use { 'jpalardy/vim-slime' }
+
+	use {
+		'nvim-telescope/telescope.nvim', tag = '0.1.1',
+		-- or                            , branch = '0.1.x',
+		requires = { {'nvim-lua/plenary.nvim'} }
+	}
+
+	use { 'Tetralux/odin.vim' } -- Odin syntax highlighter
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins

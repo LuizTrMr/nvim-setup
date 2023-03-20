@@ -34,3 +34,6 @@ let g:coc_explorer_global_presets = {
 	\   }
 	\ }
 ]])
+
+
+vim.g.slime_target = 'tmux'
