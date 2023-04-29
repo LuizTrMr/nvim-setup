@@ -5,9 +5,10 @@ if fn.empty(fn.glob(install_path)) > 0 then
 end
 
 return require('packer').startup(function(use)
-	use {'EdenEast/nightfox.nvim'} -- Color Theme
-
-	use {'morhetz/gruvbox'} -- Color Theme
+	-- Color Themes
+	use {'EdenEast/nightfox.nvim'}
+	use {'morhetz/gruvbox'}
+	use({ 'rose-pine/neovim', as = 'rose-pine' })
 
 	use {'tmhedberg/SimpylFold'} -- Auto fold for python
 
@@ -21,9 +22,10 @@ return require('packer').startup(function(use)
 
 	use {'neoclide/coc.nvim', branch = 'release', run = 'yarn install --frozen-lockfile'} -- Conquer of Completion
 
+	-- Syntax Highlighters
 	use { 'calviken/vim-gdscript3' } -- Gdscript syntax highlighter
-
 	use { 'evanleck/vim-svelte', branch = 'main' } -- Svelte syntax highlighter
+	use { 'Tetralux/odin.vim' } -- Odin syntax highlighter
 
 	-- use { 'github/copilot.vim' }
 
@@ -35,7 +37,8 @@ return require('packer').startup(function(use)
 		requires = { {'nvim-lua/plenary.nvim'} }
 	}
 
-	use { 'Tetralux/odin.vim' } -- Odin syntax highlighter
+	use { 'mbbill/undotree' }
+
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins

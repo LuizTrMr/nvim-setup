@@ -43,8 +43,15 @@ vim.api.nvim_set_keymap('i', '<Leader>p', '<Esc>pa', { noremap = true })
 -- Paste in visual mode without losing copied string
 vim.api.nvim_set_keymap('v', '<Leader>p', "\"_dP", { noremap = true })
 
+-- Delete in visual and normal mode withou yanking the string
+vim.api.nvim_set_keymap('n', '<Leader>d', "\"_d", { noremap = true })
+vim.api.nvim_set_keymap('v', '<Leader>d', "\"_d", { noremap = true })
+
 -- <TAB> Completion
 local opts = {silent = true, noremap = true, expr = true, replace_keycodes = false}
 vim.keymap.set("i", "<TAB>", 'coc#pum#visible() ? coc#pum#next(1) : "<TAB>"', opts)
 vim.keymap.set("i", "<CR>", 'coc#pum#visible() ? coc#pum#confirm() : "<C-g>u<CR><c-r>=coc#on_enter()<CR>"', opts)
 vim.keymap.set("i", "<S-TAB>", [[coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"]], opts)
+
+vim.api.nvim_set_keymap('v', 'K', ":m '<-2<CR>gv=gv", { noremap = true })
+vim.api.nvim_set_keymap('v', 'J', ":m '>+1<CR>gv=gv", { noremap = true })
