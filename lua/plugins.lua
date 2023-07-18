@@ -9,6 +9,7 @@ return require('packer').startup(function(use)
 	use {'EdenEast/nightfox.nvim'}
 	use {'morhetz/gruvbox'}
 	use({ 'rose-pine/neovim', as = 'rose-pine' })
+	use {'folke/tokyonight.nvim'}
 
 	use {'tmhedberg/SimpylFold'} -- Auto fold for python
 

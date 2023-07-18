@@ -20,7 +20,14 @@ vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
 
 -- Colorscheme
-vim.cmd('colorscheme gruvbox')
+require('tokyonight').setup({
+	style = 'storm',
+	styles = {
+		comments = { italic = false },
+		keywords = { italic = false },
+	},
+})
+vim.cmd('colorscheme tokyonight')
 
 --[[
 " These next two are used to automatically wrap lines of code
