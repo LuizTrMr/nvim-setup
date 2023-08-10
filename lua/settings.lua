@@ -9,7 +9,7 @@ vim.opt.cursorline = true -- Enable highlighting on current line
 -- vim.opt.nowritebackup = true -- Recommended by coc
 vim.opt.updatetime = 300 -- Faster completion
 vim.opt.ruler = true -- Show the cursor position all time
-vim.opt.scrolloff = 8 -- Scroll offset
+vim.opt.scrolloff = 5 -- Scroll offset
 vim.opt.encoding= 'utf-8' -- UTF-8 encoding
 vim.opt.path:append('**') -- Search files into subfolders / tab-completion for file-related tasks
 vim.opt.wildmenu = true -- Display all matching files when tab-completion
