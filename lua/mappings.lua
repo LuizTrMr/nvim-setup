@@ -1,4 +1,4 @@
-vim.api.nvim_set_keymap('i', 'uu', '<ESC>', { noremap = true }) --inoremap uu <ESC>
+vim.api.nvim_set_keymap('i', 'ii', '<ESC>', { noremap = true }) --inoremap uu <ESC>
 
 -- Remap leader
 vim.api.nvim_set_keymap('n', '\\', '<NOP>', { noremap = true, silent = true })
