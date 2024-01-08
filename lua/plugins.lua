@@ -11,8 +11,6 @@ return require('packer').startup(function(use)
 	use({ 'rose-pine/neovim', as = 'rose-pine' })
 	use {'folke/tokyonight.nvim'}
 
-	use {'tmhedberg/SimpylFold'} -- Auto fold for python
-
 	use {'tpope/vim-commentary'} -- Comment multiple lines with gcc in visual mode
 
 	use {'fatih/vim-go', run = ':GoUpdateBinaries'}
@@ -25,7 +23,6 @@ return require('packer').startup(function(use)
 
 	-- Syntax Highlighters
 	use { 'calviken/vim-gdscript3' } -- Gdscript syntax highlighter
-	use { 'evanleck/vim-svelte', branch = 'main' } -- Svelte syntax highlighter
 	use { 'Tetralux/odin.vim' } -- Odin syntax highlighter
 
 	-- use { 'github/copilot.vim' }
@@ -41,6 +38,14 @@ return require('packer').startup(function(use)
 	use { 'mbbill/undotree' }
 
 	use { 'ziglang/zig.vim' } -- Zig syntax highlighter
+
+	use { 'neovim/nvim-lspconfig' }
+
+	use {
+		"williamboman/mason.nvim",
+		"williamboman/mason-lspconfig.nvim",
+		"neovim/nvim-lspconfig",
+	}
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
