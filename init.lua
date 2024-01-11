@@ -2,7 +2,7 @@ require('plugins')
 require('mappings')
 require('settings')
 require('options')
-require('airline_theme')
+require('lualine_config')
 
 -- https://github.com/OmniSharp/omnisharp-roslyn/issues/2483#issuecomment-1539809155
 vim.api.nvim_create_autocmd("LspAttach", {
