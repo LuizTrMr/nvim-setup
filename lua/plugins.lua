@@ -48,7 +48,21 @@ plugins = {
 	"williamboman/mason.nvim",
 	"williamboman/mason-lspconfig.nvim",
 	"neovim/nvim-lspconfig",
+	"hrsh7th/nvim-cmp",
 
+	{
+		'alvarosevilla95/luatab.nvim',
+		dependencies = { 'kyazdani42/nvim-web-devicons' }
+	},
+
+	{
+		'romgrk/barbar.nvim',
+		dependencies = {
+			'lewis6991/gitsigns.nvim', -- OPTIONAL: for git status
+			'nvim-tree/nvim-web-devicons', -- OPTIONAL: for file icons
+		},
+		init = function() vim.g.barbar_auto_setup = false end,
+	}
 }
 
 local opts = {}
