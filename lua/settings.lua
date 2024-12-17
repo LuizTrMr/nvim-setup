@@ -28,9 +28,3 @@ require('tokyonight').setup({
 	},
 })
 vim.cmd('colorscheme tokyonight')
-
---[[
-" These next two are used to automatically wrap lines of code
-"autocmd FileType * set formatoptions-=l
-"autocmd FileType * set formatoptions+=t
-]]--
