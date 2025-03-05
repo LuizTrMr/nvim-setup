@@ -121,6 +121,10 @@ plugins = {
 				}
 			})
 		end
+	},
+
+	{
+		"tikhomirov/vim-glsl"
 	}
 
 }
