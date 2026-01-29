@@ -11,32 +11,17 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-plugins = {
-	-- Color Themes
-	-- 'EdenEast/nightfox.nvim',
-	'folke/tokyonight.nvim',
+function setup_vim_commentary()
+	vim.cmd([[autocmd FileType c setlocal commentstring=//\ %s]])
+end
 
+plugins = {
+	'folke/tokyonight.nvim',
 	'tpope/vim-commentary', -- Comment multiple lines with gcc in visual mode
 
 	-- Shows bottom status bar
 	{ 'nvim-lualine/lualine.nvim', dependencies = { 'nvim-tree/nvim-web-devicons' } },
 
-	-- Multi cursors
-	{
-		'mg979/vim-visual-multi',
-		init = function()
-			vim.g.VM_default_mappings = 0
-			vim.g.VM_maps = {
-				['Find Under'] = ''
-			}
-			-- vim.g.VM_add_cursor_at_pos_no_mappings = 1
-		end,
-	},
-
-	-- {
-	-- 	dir = "~/neovim_dev/odin.vim",
-	-- 	dev = true,
-	-- },
 	{
 		'LuizTrMr/odin.vim',
 		branch = 'my_branch',
@@ -90,14 +75,6 @@ plugins = {
 	},
 
 	{
-		"L3MON4D3/LuaSnip",
-		version = "v2.3.0",
-		dependencies = {
-			'saadparwaiz1/cmp_luasnip'
-		},
-	},
-
-	{
 		'stevearc/oil.nvim',
 		opts = {},
 		-- Optional dependencies
@@ -111,13 +88,19 @@ plugins = {
 
 	{
 		'nvim-treesitter/nvim-treesitter',
+		tag = "v0.9.3",
 		build  = ':TSUpdate',
 		config = function()
 			require("nvim-treesitter.configs").setup({
-				ensure_installed = {"odin"},
+				ensure_installed = {"odin", "rust", "lua", "c", "java"},
 				highlight = {
 					enable = true,
 					additional_vim_regex_highlighting = true,
+				},
+				playground = {
+					enable = true,
+					updatetime = 25,
+					persist_queries = false,
 				}
 			})
 		end
@@ -125,10 +108,22 @@ plugins = {
 
 	{
 		"tikhomirov/vim-glsl"
-	}
+	},
+
+	{
+		"L3MON4D3/LuaSnip",
+		version = "v2.3.0",
+		dependencies = {
+			'saadparwaiz1/cmp_luasnip'
+		},
+	},
 
 }
+function setup_vim_commentary()
+	vim.cmd([[autocmd FileType c setlocal commentstring=//\ %s]])
+end
 
 local opts = {}
 
 require('lazy').setup(plugins, opts)
+setup_vim_commentary()

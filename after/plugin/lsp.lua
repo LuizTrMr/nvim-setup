@@ -1,18 +1,18 @@
-require("mason").setup({
-    ui = {
-        icons = {
-            package_installed = "✓",
-            package_pending = "➜",
-            package_uninstalled = "✗"
-        }
-    }
-})
+-- require("mason").setup({
+--     ui = {
+--         icons = {
+--             package_installed = "✓",
+--             package_pending = "➜",
+--             package_uninstalled = "✗"
+--         }
+--     }
+-- })
 
-require("mason-lspconfig").setup({
-	ensure_installed = {
-		"gopls",
-	}
-})
+-- require("mason-lspconfig").setup({
+-- 	ensure_installed = {
+-- 		"gopls",
+-- 	}
+-- })
 
 local lspconfig = require("lspconfig")
 
@@ -73,11 +73,12 @@ lspconfig.gopls.setup({
 	}
 })
 
-lspconfig.gdscript.setup({
-	on_attach = on_attach,
-	capabilities = capabilities,
-})
+-- lspconfig.gdscript.setup({
+-- 	on_attach = on_attach,
+-- 	capabilities = capabilities,
+-- })
 
+--[[
 lspconfig.ols.setup({
 	on_attach = on_attach,
 	capabilities = capabilities,
@@ -90,5 +91,9 @@ lspconfig.ols.setup({
 		enable_references        = true,
 		enable_procedure_context = true,
 		enable_document_symbols  = true,
+		collections = {
+			{ name = "gamers", path = "/Users/lftm/Odin/gamers" },
+		},
 	},
 })
+]]--

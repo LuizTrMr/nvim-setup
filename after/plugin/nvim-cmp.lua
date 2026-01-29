@@ -55,9 +55,10 @@ lsnip.add_snippets("odin", {
 		]],
 		{ i(0) })
 	),
+	s("base",   fmt("import \"base:{}\"", { i(0) })),
 	s("core",   fmt("import \"core:{}\"", { i(0) })),
-	s("gamers", fmt("import \"gamers:{}\"", { i(0) })),
 	s("vendor", fmt("import {} \"vendor:{}\"", { i(0), i(1) })),
+	s("gamers", fmt("import \"shared:gamers/{}\"", { i(0) })),
 	s("switch", fmt(
 		[[
 			switch {} {{

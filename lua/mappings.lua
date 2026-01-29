@@ -19,7 +19,10 @@ vim.api.nvim_set_keymap('n', 'L', '$', { noremap = true }) --vnoremap L $
 vim.api.nvim_set_keymap('v', 'L', '$', { noremap = true }) --vnoremap L $
 
 -- Paste from non volatile yank register
-vim.api.nvim_set_keymap('n', '<Space>p', '"0p', { noremap = true }) --nnoremap <Space>p "0p
+--vim.api.nvim_set_keymap('n', '<Space>p', '"0p', { noremap = true }) --nnoremap <Space>p "0p
+
+-- Paste in visual mode without losing copied string
+vim.api.nvim_set_keymap('v', '<Space>p', "\"_dP", { noremap = true })
 
 -- Jump to previous cursor position
 vim.api.nvim_set_keymap('n', '<Space>u', '<C-O>', { noremap = true }) --nnoremap <Space>u <C-O>
@@ -36,8 +39,6 @@ vim.api.nvim_set_keymap("n", "<Space><S-j>",  '<C-w><S-w>', { noremap = true })
 -- Paste from insert mode
 vim.api.nvim_set_keymap('i', '<Leader>p', '<Esc>pa', { noremap = true })
 
--- Paste in visual mode without losing copied string
-vim.api.nvim_set_keymap('v', '<Leader>p', "\"_dP", { noremap = true })
 
 -- Move lines up and down
 vim.api.nvim_set_keymap('v', 'K', ":m '<-2<CR>gv=gv", { noremap = true })
@@ -50,3 +51,17 @@ vim.api.nvim_set_keymap('n', '<C-d>', "<C-d>zz", { noremap = true })
 -- Copy to clipboard
 vim.api.nvim_set_keymap('n', 'c<Space>', "\"+y", { noremap = true, silent = true })
 vim.api.nvim_set_keymap('v', 'c<Space>', "\"+y", { noremap = true, silent = true })
+
+vim.keymap.set('v', '<Space>e', function()
+	vim.cmd('normal! y')
+	local text = vim.fn.getreg('"')
+	local chunk, err = load("return " .. text)
+	if chunk then
+		local ok, result = pcall(chunk)
+		if ok then
+			vim.notify(tostring(result), vim.log.levels.INFO)
+		end
+	else
+		vim.notify("Error", vim.log.levels.INFO)
+	end
+end, { noremap = true })
